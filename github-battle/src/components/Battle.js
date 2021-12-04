@@ -1,5 +1,6 @@
 import React from "react";
 import Final from "./Final";
+import Header from "./Header";
 class Battle extends React.Component {
     constructor(props) {
         super(props);
@@ -8,7 +9,7 @@ class Battle extends React.Component {
             battle: false,
             active1: false,
             active2: false,
-            result:false,
+            result: false,
 
         }
     }
@@ -36,7 +37,7 @@ class Battle extends React.Component {
     handleBattle = () => {
         this.setState({
             battle: true,
-            result:true,
+            result: true,
         })
 
 
@@ -46,7 +47,10 @@ class Battle extends React.Component {
         const index = e.target.id;
 
         this.setState({
-            player: this.state.player.filter((item, i) => i + 1 !== index)
+            player: this.state.player.filter((item, i) => {
+
+                return i + 1 !== Number(index)
+            })
 
         })
 
@@ -73,12 +77,14 @@ class Battle extends React.Component {
     }
 
     render() {
-        console.log(this.state.player);
+
+        console.log(this.state.player, 'remaining players');
         if (!this.state.battle) {
             return (
 
                 <>
-                    <div className="container">
+                    <Header />
+                    <div className="container battle-ground">
                         <h1>Players</h1>
                         <div className="players">
                             {!this.state.player[0] ?
@@ -86,7 +92,7 @@ class Battle extends React.Component {
                                     <span>Player One</span>
                                     <form onSubmit={(e) => this.handleSubmit(e)}>
                                         <input placeholder="github username" onChange={this.handleChange1} />
-                                        <input type="submit" placeholder="" value="SUBMIT" className={this.state.active1 ? "active" : ""} />
+                                        <input type="submit" placeholder="" value="SUBMIT" className={this.state.active1 ? "active1" : ""} />
                                     </form>
                                 </div>
                                 : <div className="battle-user">
@@ -108,7 +114,7 @@ class Battle extends React.Component {
                                     <span>Player Two</span>
                                     <form onSubmit={(e) => this.handleSubmit(e)}>
                                         <input placeholder="github username" onChange={this.handleChange2} />
-                                        <input type="submit" placeholder="" value="SUBMIT" className={this.state.active2 ? "active" : ""} />
+                                        <input type="submit" placeholder="" value="SUBMIT" className={this.state.active2 ? "active1" : ""} />
                                     </form>
                                 </div>
                                 : <div className="battle-user">

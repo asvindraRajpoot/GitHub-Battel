@@ -1,5 +1,7 @@
 import React from "react";
 import Loader from "./Loader";
+import Header from "./Header";
+
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -64,14 +66,15 @@ class GitHub extends React.Component {
 
 
             return (
-                <>
+                <><Header />
                     <div className="tags container">
-                        <span onClick={(e) => this.handleClick(e)}>All</span>
-                        <span onClick={(e) => this.handleClick(e)}>JavaScript</span>
-                        <span onClick={(e) => this.handleClick(e)}>Ruby</span>
-                        <span onClick={(e) => this.handleClick(e)}>Java</span>
-                        <span onClick={(e) => this.handleClick(e)}>CSS</span>
-                        <span onClick={(e) => this.handleClick(e)}>Python</span>
+
+                        <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag==="All"?"active":""}>All</span>
+                        <span onClick={(e) => this.handleClick(e)}  className={this.state.activeTag==="JavaScript"?"active":""}>JavaScript</span>
+                        <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag==="Ruby"?"active":""}>Ruby</span>
+                        <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag==="Java"?"active":""}>Java</span>
+                        <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag==="CSS"?"active":""}>CSS</span>
+                        <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag==="Python"?"active":""}>Python</span>
                     </div>
                     <div className="container all-repo">
 

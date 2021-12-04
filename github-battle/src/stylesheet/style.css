@@ -403,10 +403,17 @@ span{
     letter-spacing: .2rem;
     text-transform: uppercase;
 }
-.active{
+.active1{
     background-color: black;
     color: whitesmoke;
 }
 .battle-margin{
     margin-left: 1rem;
+}
+.battle-ground{
+    margin-top: 4rem;
+}
+.active{
+    color: crimson;
+   
 }

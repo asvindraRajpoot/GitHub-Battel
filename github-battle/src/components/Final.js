@@ -1,5 +1,6 @@
 import React from "react";
 import Loader from "./Loader";
+import Header from "./Header";
 class Final extends React.Component {
     constructor(props) {
         super(props);
@@ -35,7 +36,7 @@ class Final extends React.Component {
         } else {
             return (
 
-                <>
+                <><Header />
                     <div className="final container">
                         <div className="repo">
                             <strong>{player1Result}</strong>
